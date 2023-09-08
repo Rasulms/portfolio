@@ -426,7 +426,7 @@ svg {
   display: block !important;
   /* top: 525px; */
   bottom: 504px;
-  left: 1150px;
+  left: 1350px;
   border-radius: 12px;
   transform: translateX(calc(100% + 30px));
   transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
