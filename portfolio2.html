@@ -334,31 +334,36 @@
                     <div class="row" id="form">
                         <form id="validateform" action="" style="padding: 15px 25px 15px 25px;">
                             <div>
-                                <label for="formName">Name</label>
-                                <input type="text" id="formName" class="formStyle form-control" required="">
+                                <label for="formName" style="display: inline-block !important;">Name</label><span
+                                    style="color: red;">*</span>
+                                <input type="text" placeholder="Full Name" id="formName" value=""
+                                    class="formStyle form-control" required="">
 
                             </div>
                             <br>
                             <div>
-                                <label for="formEmail">Email</label>
-                                <input type="email" id="formEmail" class="formStyle form-control" required="">
+                                <label for="formEmail" style="display: inline-block !important;">Email</label><span
+                                    style="color: red;">*</span>
+                                <input type="email" placeholder="Enter Email" id="formEmail" value=""
+                                    class="formStyle form-control" required="">
 
                             </div>
                             <br>
                             <div>
                                 <label for="formPhone">Phone</label>
-                                <input type="number" id="formPhone" class="formStyle form-control" required="">
+                                <input type="number" placeholder="Enter your Mobile No. " id="formPhone"
+                                    class="formStyle form-control">
 
                             </div>
                             <br>
 
                             <div>
                                 <label for="">Message</label>
-                                <textarea name="" placeholder="Message..." rows="20" class="formStyle form-control"
-                                    style="height: 130px !important;" required=""> </textarea>
+                                <textarea name="" placeholder="Hi Rasul . . ." rows="20" class="formStyle form-control"
+                                    style="height: 130px !important;"> </textarea>
                             </div>
                             <br>
-                            <button id="animaButton" class=" sendButton" value="submit" style="width: 100%;"
+                            <button id="animaButton" class="sendButton" value="submit" style="width: 100%;"
                                 type="submit">SEND</button>
 
                         </form>
