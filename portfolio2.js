@@ -24,7 +24,13 @@ var f_bar = document.getElementById('f_bar');
 var imgLink = document.getElementById('imgLink');
 const box_skill = document.getElementsByClassName('box_skill')
 var front = document.getElementsByClassName('flip-card-front');
-const formStyle = document.getElementsByClassName('formStyle')
+const formStyle = document.getElementsByClassName('formStyle');
+var formName = document.getElementById('formName');
+var formEmail = document.getElementById('formEmail');
+var formPhone = document.getElementById('formPhone');
+
+
+
 
 
 
@@ -366,13 +372,19 @@ let timer1, timer2;
 
 button.addEventListener("click", (e) => {
 
+    console.log("clicked");
+    var show = null;
 
-    if ((formStyle[0].value != null && formStyle[0].value != "")
-        && (formStyle[1].value != null && formStyle[1].value != "") &&
-        (formStyle[2].value != null && formStyle[2].value != "") &&
-        (formStyle[3].value != null && formStyle[3].value != "")) {
+    if (formName.value != "" && formEmail.value != "" && formPhone.value.length > 0) {
+        show = true;
 
+    }
+    else {
+        show = false;
+    }
 
+    if (show) {
+        e.preventDefault();
 
         toast.classList.add("active");
         progress.classList.add("active");
@@ -384,8 +396,6 @@ button.addEventListener("click", (e) => {
         timer2 = setTimeout(() => {
             progress.classList.remove("active");
         }, 5300);
-
-
     }
 
     setTimeout(() => {
