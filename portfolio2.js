@@ -29,12 +29,6 @@ var formName = document.getElementById('formName');
 var formEmail = document.getElementById('formEmail');
 var formPhone = document.getElementById('formPhone');
 
-
-
-
-
-
-
 window.addEventListener('click', (e) => {
     var key = e.target.id;
     switch (key) {
@@ -99,38 +93,24 @@ window.addEventListener('click', (e) => {
     }
 })
 
-// box_skill.addEventListener('click', (e) => {
-//     console.log(e);
 
-// })
 dark_out.addEventListener('click', (e) => {
 
-    // console.log(e);
-    // console.log(circle);
     if (e.target.className === 'drk') {
 
     }
 })
 
-
 dark_out.addEventListener('click', (e) => {
 
-    // console.log(e);
-    // console.log(circle);
     if ((e.target.className === 'drk' || e.target.className === 'circle') && circle.style.transform === 'translateX(0px)') {
 
         circle.style.transform = 'translateX(18px)';
-        // body.style.backgroundColor='black'
-        // dark_out.style.border='3px solid white'
-        // circle.style.backgroundColor = '#364760'
+  
         circle.style.backgroundColor = 'purple'
-        // moon.style.display = `block`;
         moon.style.top = `-24px`;
         moon.style.left = `10px`;
 
-
-
-        // e.target.style.transform='translateX(23px)';
     } else {
         circle.style.transform = 'translateX(0px)';
         // dark_out.style.border='3px solid black'
@@ -138,16 +118,7 @@ dark_out.addEventListener('click', (e) => {
         // moon.style.display = `block`;
         moon.style.top = `23px`;
         moon.style.left = `0px`;
-
-
-
-
-        // body.style.backgroundColor='yellow'
     }
-
-    // console.log(box_skill);
-
-
     if (circle.style.transform == 'translateX(18px)') {
         for (let i = 0; i < icon_box.length; i++) {
             icon_box[i].style.color = `white`;
@@ -223,92 +194,8 @@ dark_out.addEventListener('click', (e) => {
 
     }
 })
-//#1f1f1f;
-// const downloadButton = document.getElementById('d_load')
-// const d_icon = document.getElementById("d_icon")
 
 
-// downloadButton.addEventListener('click', (e) => {
-//     setTimeout(() => {
-//         d_icon.classList.add('fa-flip')
-//         setTimeout(() => {
-
-//             d_icon.classList.remove('fa-flip')
-//         }, 400);
-//     }, 50);
-
-// })
-
-// window.addEventListener('scroll', (e) => {
-
-//     var drk = document.getElementById('dark-out');
-//     var a = document.querySelector('a');
-//     var tst = document.querySelector('svg');
-
-//     // console.log(myname);
-//     // console.log(tst);
-//     fixedTop.style = 'background-color: white;color: white'
-//     if (window.scrollY >= 650) {
-
-//         if (circle.style.transform == 'translateX(18px)') {
-//             fixedTop.style.backgroundColor = '#2f2f2f';
-//             myname.style.color = 'white';
-
-
-//         }
-
-
-//         moon.style.backgroundColor = 'black'
-
-//         drk.style = 'background-color: black;border:2px solid black';
-
-//         // circle.style.backgroundColor = '#f8d925'
-
-
-//         var val = Object.values(fixedTop_a);
-//         val.map(ele => ele.style = "color: black");
-//         myname[0].style.color = 'black'
-
-
-
-//     }
-//     if (window.scrollY < 650) {
-//         fixedTop.style = 'background-color: transparent;color: white'
-//         moon.style.backgroundColor = 'white'
-
-//         drk.style = 'background-color: white;border:2px solid white'
-
-//         var val = Object.values(fixedTop_a);
-//         val.map(ele => ele.style = "color: white");
-
-//         myname[0].style.color = 'white'
-//         // circle.style.backgroundColor = '#f8d925'
-
-
-
-//     }
-// })
-
-
-
-// var animaButton = document.getElementById('animaButton').addEventListener('click', (e) => {
-
-//     // console.log(e)
-//     var animation = document.getElementById('animation-container');
-
-
-//     animation.hidden = false;
-//     animation.style.display = 'flex';
-//     setTimeout(() => {
-//         // animation.style.display = 'none';
-//         animation.hidden = true;
-//         console.log('time out function');
-//         console.log(bodymovin);
-
-//     }, 3000);
-
-
-// })
 //scroll button on bottom right
 var fscroll = document.getElementById('first_scroll').addEventListener('click', (e) => {
     window.scrollBy(0, 650);
@@ -359,9 +246,6 @@ skillButton.addEventListener('click', (e) => {
     }
 
 })
-//
-
-
 
 const button = document.getElementById("animaButton"),
     toast = document.querySelector(".toast");
