@@ -443,7 +443,7 @@ svg {
 }
 
 .toast.active {
-  transform: translateX(0%);
+  transform: translateX(-55%);
 }
 
 .toast .toast-content {
