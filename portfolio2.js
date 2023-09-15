@@ -1,4 +1,3 @@
-//dark mode toggle switch
 const circle = document.getElementById('circ')
 const body = document.getElementById('body')
 const dark_out = document.getElementById('dark-out')
@@ -28,6 +27,9 @@ const formStyle = document.getElementsByClassName('formStyle');
 var formName = document.getElementById('formName');
 var formEmail = document.getElementById('formEmail');
 var formPhone = document.getElementById('formPhone');
+
+
+// Open icon site in seperate window
 
 window.addEventListener('click', (e) => {
     var key = e.target.id;
@@ -80,13 +82,30 @@ window.addEventListener('click', (e) => {
 
             break;
         case "vue":
-            window.open('https://javascript.info/');
+            window.open('https://vuejs.org/');
 
             break;
         case "mysql":
-            window.open('https://javascript.info/');
+            window.open('https://www.mysql.com/');
 
             break;
+        case "bootstrap":
+            window.open('https://getbootstrap.com/');
+
+            break;
+        case "mongo":
+            window.open('https://www.mongodb.com/');
+
+            break;
+        case "express":
+            window.open('https://expressjs.com/');
+
+            break;
+        case "postman":
+            window.open('https://www.postman.com/');
+
+            break;
+
 
         default:
             break;
@@ -94,19 +113,15 @@ window.addEventListener('click', (e) => {
 })
 
 
-dark_out.addEventListener('click', (e) => {
 
-    if (e.target.className === 'drk') {
-
-    }
-})
+// theme toggle
 
 dark_out.addEventListener('click', (e) => {
 
     if ((e.target.className === 'drk' || e.target.className === 'circle') && circle.style.transform === 'translateX(0px)') {
 
         circle.style.transform = 'translateX(18px)';
-  
+
         circle.style.backgroundColor = 'purple'
         moon.style.top = `-24px`;
         moon.style.left = `10px`;
@@ -197,12 +212,14 @@ dark_out.addEventListener('click', (e) => {
 
 
 //scroll button on bottom right
+
 var fscroll = document.getElementById('first_scroll').addEventListener('click', (e) => {
     window.scrollBy(0, 650);
 })
 
-//
+
 //skill button and Tools button
+
 var skillButton = document.getElementById('skillButton');
 var toolButton = document.getElementById('toolButton');
 var t_icon = document.getElementById('t_icon');
@@ -246,6 +263,8 @@ skillButton.addEventListener('click', (e) => {
     }
 
 })
+
+// send button toast message
 
 const button = document.getElementById("animaButton"),
     toast = document.querySelector(".toast");
