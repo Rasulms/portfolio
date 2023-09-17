@@ -27,6 +27,17 @@ const formStyle = document.getElementsByClassName('formStyle');
 var formName = document.getElementById('formName');
 var formEmail = document.getElementById('formEmail');
 var formPhone = document.getElementById('formPhone');
+var errMsgPhone = document.getElementById('errMsgPhone');
+var errMsgEmail = document.getElementById('errMsgEmail');
+var errMsgName = document.getElementById('errMsgName');
+var final_outerBox = document.getElementById('final_outerBox');
+var gif = document.getElementById('gif');
+var greeting = document.getElementById('greeting');
+var validateform = document.getElementById('validateform');
+
+
+
+
 
 
 // Open icon site in seperate window
@@ -274,50 +285,131 @@ const button = document.getElementById("animaButton"),
 let timer1, timer2;
 
 button.addEventListener("click", (e) => {
+    console.log(e.target.className);
 
-    console.log("clicked");
+
+
     var show = null;
 
-    if (formName.value != "" && formEmail.value != "" && formPhone.value.length > 0) {
+    if (formName.value != "" && formEmail.value != "" && formPhone.value.length >= 10) {
         show = true;
 
     }
     else {
         show = false;
+
+
     }
 
-    if (show) {
+    if (!show) {
         e.preventDefault();
-
-        toast.classList.add("active");
-        progress.classList.add("active");
-
-        timer1 = setTimeout(() => {
-            toast.classList.remove("active");
-        }, 5000); //1s = 1000 milliseconds
-
-        timer2 = setTimeout(() => {
-            progress.classList.remove("active");
-        }, 5300);
-    }
-
-    setTimeout(() => {
-        for (let i = 0; i < formStyle.length; i++) {
-            formStyle[i].value = null;
+        if (formPhone.value.length < 10 && formPhone.value.length > 0) {
+            errMsgPhone.innerHTML = "Enter valid Mobile number"
+            errMsgPhone.style.color = `red`;
+            formPhone.style.border = `1px solid red`;
 
         }
-    }, 100);
+        if (formPhone.value.length == 0) {
+            errMsgPhone.innerHTML = "Mobile no. can't be blank"
+            errMsgPhone.style.color = `red`;
+            formPhone.style.border = ` 1px solid red`
+
+
+
+        }
+        if (formPhone.value.length >= 10) {
+            errMsgPhone.innerHTML = "Success"
+            formPhone.style.border = `1px solid green`;
+
+
+        }
+
+        if (formEmail.value.length == 0) {
+            errMsgEmail.innerHTML = "Email Id can't be blank"
+            formEmail.style.border = ` 1px solid red`
+
+            // errMsgEmail.style.display = "flex"
+        }
+        if (formEmail.value.length > 0) {
+            // errMsgName.style.display = "flex"
+            errMsgEmail.innerHTML = "Success "
+            errMsgEmail.style.color = "green"
+            formEmail.style.border = ` 1px solid green`
+
+
+
+        }
+        if (formName.value.length >= 4) {
+            // errMsgName.style.display = "flex"
+            errMsgName.innerHTML = "Success";
+            errMsgName.style.color = `green`
+            formName.style.border = `1px solid green`
+
+
+        }
+        if (formName.value.length == 0) {
+            // errMsgName.style.display = "flex"
+            errMsgName.innerHTML = "Name can't be empty"
+            errMsgName.style.color = `red`
+            formName.style.border = ` 1px solid red`
+
+
+
+        }
+        if (formName.value.length > 0 && formName.value.length < 4) {
+            // errMsgName.style.display = "flex"
+            errMsgName.innerHTML = "Name must have Minimum of 4 character"
+            errMsgName.style.color = `red`
+            formName.style.border = ` 1px solid red`
+
+
+        }
+
+
+    }
+    if (show) {
+        e.preventDefault();
+        const nme = formName.value;
+        greeting.innerHTML = `Hi  ${nme} ,`
+        final_outerBox.style.display = "flex"
+        final_outerBox.style.transition = "0.3s"
+        final_outerBox.style.top = "40%"
+
+        validateform.reset()
+        formName.style.border = ` none`
+        formEmail.style.border = ` none`
+        formPhone.style.border = ` none`
+        errMsgName.innerHTML = "";
+        errMsgEmail.innerHTML = "";
+        errMsgPhone.innerHTML = "";
+
+
+
+
+
+
+
+        setTimeout(() => {
+            final_outerBox.style.transition = "0.8s"
+            final_outerBox.style.top = "210%";
+            // validateform.reset()
+
+
+        }, 4200);
+    }
+
+
 
 });
 
-closeIcon.addEventListener("click", () => {
-    toast.classList.remove("active");
+// closeIcon.addEventListener("click", () => {
+//     toast.classList.remove("active");
 
-    setTimeout(() => {
-        progress.classList.remove("active");
-    }, 300);
+//     setTimeout(() => {
+//         progress.classList.remove("active");
+//     }, 300);
 
-    clearTimeout(timer1);
-    clearTimeout(timer2);
-});
+//     clearTimeout(timer1);
+//     clearTimeout(timer2);
+// });
 

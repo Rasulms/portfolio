@@ -4,7 +4,7 @@
 }
 .body_container {
   /* border: 2px solid red; */
-  height: 100vh;
+  height: 845px;
   width: 100%;
   background-size: cover;
   background-image: url("resource/pexels-pixabay-268533.jpg");
@@ -15,18 +15,24 @@
   background-size: cover;
   color: white;
 }
+.hid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .dflex {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: nowrap;
   background-color: white;
   color: black;
   transition: 0.6s;
+  height: 55px;
 }
 .fflex {
   background-color: white;
   color: black;
-  display: flex;
+  /* display: flex; */
   transition: 0.6s;
 
   /* gap: 15px; */
@@ -36,7 +42,13 @@
   justify-content: end;
   align-items: center;
 }
-
+#mname {
+  margin-top: 22px;
+  font-size: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .color {
 }
 @font-face {
@@ -123,7 +135,7 @@ li > a {
 
 .mid_text {
   font-weight: bolder;
-  font-size: 50px;
+  font-size: 45px;
 }
 .anchor {
   color: black;
@@ -207,26 +219,29 @@ li > a {
   box-shadow: 0px 0px 40px -15px;
 }
 .mid_content {
-  margin-top: 400px;
-  margin-bottom: 100px;
+  margin-top: 440px;
+  /* margin-bottom: 100px; */
   display: flex;
   justify-content: space-between;
-  gap: 30px;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 .bg {
   /* border: 2px solid salmon; */
   height: 120px;
   align-items: center;
+  flex-direction: column;
+  display: flex;
 }
 .exp {
   height: 70px;
   text-align: center;
   padding-top: 23px;
 }
+
 .bg > p {
   text-align: center;
-  padding-top: 10px;
   font-weight: 700;
   font-size: 20px;
 }
@@ -244,8 +259,9 @@ li > a {
   color: orangered;
 }
 .abt {
-  font-size: 35px;
+  font-size: 34px;
   font-weight: 700;
+  padding-right: 65px;
   /* padding-left: 15px; */
 }
 .wrapper {
@@ -254,6 +270,14 @@ li > a {
   border-radius: 7px;
   overflow: hidden;
   /* border: 2px solid blue; */
+}
+.wrapper2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.dp_1 {
+  width: 100%;
 }
 label {
   display: block !important;
@@ -265,6 +289,53 @@ label {
   height: 35px;
   border: none;
   background-color: rgb(201 201 201 / 23%) !important;
+}
+.errMsg {
+  float: right;
+  font-size: 11px;
+  color: red;
+  /* display: none; */
+  font-weight: 500;
+  text-transform: uppercase;
+  /* transition: 0.5 linear; */
+}
+.final_innerBox {
+  /* border: 2px solid blue; */
+  /* width: 23%; */
+  /* height: 101px; */
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#gif {
+  background-image: url(resource/animation_lm3pfj6f_small.gif);
+}
+#final_outerBox {
+  /* height: 500px; */
+  width: 100%;
+  background-color: transparent;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid darkorange; */
+  top: -90%;
+  /* top: 40%; */
+  display: flex;
+
+  transition: 1s ease;
+}
+
+.response {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
 }
 #animation-container {
   /* background-color: whitesmoke; */
@@ -303,6 +374,9 @@ svg {
 .abt_text {
   text-align: justify;
   line-height: 32px;
+}
+.abt_text1 {
+  padding-right: 73px;
 }
 .d_button {
   display: grid;
@@ -359,7 +433,11 @@ svg {
 .flip_box:hover > div:not(:hover) > img:not(:hover) {
   opacity: 0.2;
 }
-
+.Buttondiv {
+  display: flex;
+  margin-top: 90px;
+  margin-right: 70px;
+}
 #d_icon {
   transition: 0.4s linear;
 }
@@ -401,6 +479,7 @@ svg {
 }
 .box_skill {
   height: 90px;
+  width: 125px !important;
   /* width: 100px !important; */
   /* border: 2px solid blue; */
   background-color: white;
@@ -416,7 +495,13 @@ svg {
 /* .toolButton:active .box_skill {
   transform: rotateY(180deg);
 } */
-
+#skills {
+  margin-bottom: 125px;
+}
+#about {
+  margin-bottom: 125px;
+  margin-top: 100px;
+}
 .tool {
   background-image: url("resource/pngeggJS.png");
   /* background-color: red; */
@@ -426,109 +511,61 @@ svg {
   transform: translateY(0px);
 }
 
-.toast {
-  position: fixed;
-  display: block !important;
-  /* top: 525px; */
-  bottom: 504px;
-  left: 1350px;
-  border-radius: 12px;
-  transform: translateX(calc(100% + 30px));
-  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
-  background-color: white !important;
-  overflow: hidden;
-  box-shadow: 0px 0px 50px -10px !important;
-}
-
-.toast.active {
-  transform: translateX(-5%);
-}
-
-.toast .toast-content {
-  display: flex;
-  align-items: center;
-}
-
-.toast-content .check {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 35px;
-  min-width: 35px;
-  background-color: #4070f4;
-  color: #fff;
-  font-size: 20px;
-  border-radius: 50%;
-}
-
-.toast-content .message {
-  display: flex;
-  flex-direction: column;
-  margin: 0 20px;
-}
-
-.message .text {
-  font-size: 16px;
-  font-weight: 400;
-  color: #666666;
-  padding-top: 5px;
-}
-
-.message .text.text-1 {
-  font-weight: 600;
-  color: #333;
-}
-
-.toast .close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  padding: 5px;
-  cursor: pointer;
-  opacity: 0.7;
-}
-
-.toast .close:hover {
-  opacity: 1;
-}
-
-.toast .progress {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 3px;
-  width: 100%;
-}
-
-.toast .progress:before {
-  content: "";
-  position: absolute;
-  bottom: 1px;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #4070f4;
-}
-
-.progress.active:before {
-  animation: progress 5s linear forwards;
-}
-
-@keyframes progress {
-  100% {
-    right: 100%;
-  }
-}
-
 #animaButton:hover {
   /* background-color: #0e4bf1; */
 }
 
-.toast.active ~ button {
-  pointer-events: none;
-}
 @media only screen and (max-width: 990px) {
   .col-md-12 {
     margin-top: 75px !important;
+  }
+  .abt_text1 {
+    padding-right: 0px;
+  }
+  .Buttondiv {
+    margin-top: 75px;
+    margin-right: 0px;
+  }
+  .toastMsgBox {
+    height: 500px;
+    width: 30%;
+    background-color: red;
+  }
+  #skills {
+    margin-bottom: 0px;
+  }
+  #about {
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  .footer_icon {
+    width: 100%;
+  }
+  .dp_1 {
+    width: inherit;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .mid_text {
+    font-weight: bolder;
+    font-size: 30px;
+  }
+}
+@media only screen and (max-width: 630px) {
+  .hid {
+    display: none;
+  }
+}
+@media only screen and (max-width: 585px) {
+  .abt {
+    font-size: 24px;
+  }
+  .abt_text {
+    font-size: 14px;
+  }
+  .font_si {
+    font-size: 14px;
+    color: grey;
+    font-weight: 500;
   }
 }
