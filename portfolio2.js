@@ -38,9 +38,7 @@ var validateform = document.getElementById('validateform');
 
 
 
-
-
-// Open icon site in seperate window
+// Open site in seperate window
 
 window.addEventListener('click', (e) => {
     var key = e.target.id;
@@ -123,8 +121,6 @@ window.addEventListener('click', (e) => {
     }
 })
 
-
-
 // theme toggle 
 
 dark_out.addEventListener('click', (e) => {
@@ -139,9 +135,7 @@ dark_out.addEventListener('click', (e) => {
 
     } else {
         circle.style.transform = 'translateX(0px)';
-        // dark_out.style.border='3px solid black'
         circle.style.backgroundColor = '#f8d925'
-        // moon.style.display = `block`;
         moon.style.top = `23px`;
         moon.style.left = `0px`;
     }
@@ -151,11 +145,9 @@ dark_out.addEventListener('click', (e) => {
             icon_box_out[i].style.backgroundColor = `#2f2f2f`;
             // darkP[i].style.color = `white`;
             h2[i].style.color = `white`;
-
         }
         fullBody.style.backgroundColor = `#1f1f1f`;
-        // box_skill.style.backgroundColor = "#2f2f2f"
-        //ptag
+
         for (let j = 0; j < p.length; j++) {
 
             p[j].style.color = 'white';
@@ -183,12 +175,10 @@ dark_out.addEventListener('click', (e) => {
         for (let i = 0; i < icon_box.length; i++) {
             icon_box[i].style.color = `black`;
             icon_box_out[i].style.backgroundColor = `white`
-            // darkP[i].style.color = `black`
             h2[i].style.color = `black`;
         }
         fullBody.style.backgroundColor = `rgb(227, 227, 227)`;
         // downloadButton.style.hover
-
         //ptag
         for (let j = 0; j < p.length; j++) {
             if (p[j].className == "scroll_text" || p[j].className == "myname") {
@@ -204,28 +194,21 @@ dark_out.addEventListener('click', (e) => {
         }
         for (let i = 0; i < box_skill.length; i++) {
             box_skill[i].style.backgroundColor = "white"
-
         }
         fixedTop.style.backgroundColor = 'white'
         f_bar.style.backgroundColor = 'white'
-
 
         var val = Object.values(fixedTop_a);
         val.map(ele => ele.style = "color: black");
         mname.style.color = 'black'
         fname.style.color = 'black'
-
-
-
-
     }
 })
-
 
 //scroll button on bottom right
 
 var fscroll = document.getElementById('first_scroll').addEventListener('click', (e) => {
-    window.scrollBy(0, 650);
+    window.scrollBy(0, 800);
 })
 
 
@@ -247,7 +230,7 @@ toolButton.addEventListener('click', (e) => {
     s_icon.style.color = `black`;
 
 
-
+    //tool button - rotate div to 180 deg
     for (let i = 0; i < box_skill.length; i++) {
         box_skill[i].style.transform = `rotateY(180deg)`;
 
@@ -268,7 +251,7 @@ skillButton.addEventListener('click', (e) => {
 
 
     for (let i = 0; i < box_skill.length; i++) {
-        // console.log('c');
+
         box_skill[i].style.transform = `rotateY(0deg)`;
 
     }
@@ -283,6 +266,7 @@ const button = document.getElementById("animaButton"),
     (progress = document.querySelector(".progress"));
 
 let timer1, timer2;
+var r = null;
 
 button.addEventListener("click", (e) => {
     console.log(e.target.className);
@@ -291,18 +275,43 @@ button.addEventListener("click", (e) => {
 
     var show = null;
 
-    if (formName.value != "" && formEmail.value != "" && formPhone.value.length >= 10) {
-        show = true;
+    if (e.target.className == "sendButton") {
+        var res;
+        var a = Array.from(formEmail.value);
+        console.log("a is " + a);
 
+        a.forEach(element => {
+
+            if (element == "@") {
+                res = true;
+                if (res) {
+                    r = true;
+                }
+            }
+            else {
+                res = false;
+            }
+
+        });
+    }
+    if (formName.value != "" && r && formPhone.value.length >= 10) {
+        Successfull();
     }
     else {
-        show = false;
-
-
+        failed()
     }
 
-    if (!show) {
+
+
+    function failed() {
         e.preventDefault();
+        if (!res) {
+            errMsgEmail.innerHTML = "@ is missing"
+            formEmail.style.border = ` 1px solid red`
+            errMsgEmail.style.color = "red"
+
+
+        }
         if (formPhone.value.length < 10 && formPhone.value.length > 0) {
             errMsgPhone.innerHTML = "Enter valid Mobile number"
             errMsgPhone.style.color = `red`;
@@ -327,10 +336,12 @@ button.addEventListener("click", (e) => {
         if (formEmail.value.length == 0) {
             errMsgEmail.innerHTML = "Email Id can't be blank"
             formEmail.style.border = ` 1px solid red`
+            errMsgEmail.style.color = "red"
+
 
             // errMsgEmail.style.display = "flex"
         }
-        if (formEmail.value.length > 0) {
+        if (formEmail.value.length > 0 && res) {
             // errMsgName.style.display = "flex"
             errMsgEmail.innerHTML = "Success "
             errMsgEmail.style.color = "green"
@@ -367,7 +378,7 @@ button.addEventListener("click", (e) => {
 
 
     }
-    if (show) {
+    function Successfull() {
         e.preventDefault();
         const nme = formName.value;
         greeting.innerHTML = `Hi  ${nme} ,`
@@ -384,10 +395,11 @@ button.addEventListener("click", (e) => {
         errMsgPhone.innerHTML = "";
 
 
+        setTimeout(() => {
+            // window.open("http://127.0.0.1:5500/index.html", "_self");
+            window.open("https://rasul-portfolio.web.app", "_self");
 
-
-
-
+        }, 4300);
 
         setTimeout(() => {
             final_outerBox.style.transition = "0.8s"
@@ -400,16 +412,202 @@ button.addEventListener("click", (e) => {
 
 
 
+
+
+
+    // if (!show) {
+    //     e.preventDefault();
+    //     if (formPhone.value.length < 10 && formPhone.value.length > 0) {
+    //         errMsgPhone.innerHTML = "Enter valid Mobile number"
+    //         errMsgPhone.style.color = `red`;
+    //         formPhone.style.border = `1px solid red`;
+
+    //     }
+    //     if (formPhone.value.length == 0) {
+    //         errMsgPhone.innerHTML = "Mobile no. can't be blank"
+    //         errMsgPhone.style.color = `red`;
+    //         formPhone.style.border = ` 1px solid red`
+
+
+
+    //     }
+    //     if (formPhone.value.length >= 10) {
+    //         errMsgPhone.innerHTML = "Success"
+    //         formPhone.style.border = `1px solid green`;
+
+
+    //     }
+
+    //     if (formEmail.value.length == 0) {
+    //         errMsgEmail.innerHTML = "Email Id can't be blank"
+    //         formEmail.style.border = ` 1px solid red`
+
+    //         // errMsgEmail.style.display = "flex"
+    //     }
+    //     if (formEmail.value.length > 0) {
+    //         // errMsgName.style.display = "flex"
+    //         errMsgEmail.innerHTML = "Success "
+    //         errMsgEmail.style.color = "green"
+    //         formEmail.style.border = ` 1px solid green`
+
+
+
+    //     }
+    //     if (formName.value.length >= 4) {
+    //         // errMsgName.style.display = "flex"
+    //         errMsgName.innerHTML = "Success";
+    //         errMsgName.style.color = `green`
+    //         formName.style.border = `1px solid green`
+
+
+    //     }
+    //     if (formName.value.length == 0) {
+    //         // errMsgName.style.display = "flex"
+    //         errMsgName.innerHTML = "Name can't be empty"
+    //         errMsgName.style.color = `red`
+    //         formName.style.border = ` 1px solid red`
+
+    //     }
+    //     if (formName.value.length > 0 && formName.value.length < 4) {
+    //         // errMsgName.style.display = "flex"
+    //         errMsgName.innerHTML = "Name must have Minimum of 4 character"
+    //         errMsgName.style.color = `red`
+    //         formName.style.border = ` 1px solid red`
+
+
+    //     }
+
+
+    // }
+    // if (show) {
+    //     e.preventDefault();
+    //     const nme = formName.value;
+    //     greeting.innerHTML = `Hi  ${nme} ,`
+    //     final_outerBox.style.display = "flex"
+    //     final_outerBox.style.transition = "0.3s"
+    //     final_outerBox.style.top = "40%"
+
+    //     validateform.reset()
+    //     formName.style.border = ` none`
+    //     formEmail.style.border = ` none`
+    //     formPhone.style.border = ` none`
+    //     errMsgName.innerHTML = "";
+    //     errMsgEmail.innerHTML = "";
+    //     errMsgPhone.innerHTML = "";
+
+
+    //     setTimeout(() => {
+    //         // window.open("http://127.0.0.1:5500/index.html", "_self");
+    //         window.open("https://rasul-portfolio.web.app", "_self");
+
+    //     }, 4300);
+
+    //     setTimeout(() => {
+    //         final_outerBox.style.transition = "0.8s"
+    //         final_outerBox.style.top = "210%";
+    //         // validateform.reset()
+
+
+    //     }, 4200);
+    // }
+
+
+
 });
 
-// closeIcon.addEventListener("click", () => {
-//     toast.classList.remove("active");
+validateform.addEventListener('keyup', (e) => {
+    if (e.target.id == "formName") {
+        if (formName.value.length >= 4) {
+            // errMsgName.style.display = "flex"
+            errMsgName.innerHTML = "Success";
+            errMsgName.style.color = `green`
+            formName.style.border = `1px solid green`
 
-//     setTimeout(() => {
-//         progress.classList.remove("active");
-//     }, 300);
 
-//     clearTimeout(timer1);
-//     clearTimeout(timer2);
-// });
+        }
+        if (formName.value.length == 0) {
+            // errMsgName.style.display = "flex"
+            errMsgName.innerHTML = "Name can't be empty"
+            errMsgName.style.color = `red`
+            formName.style.border = ` 1px solid red`
 
+        }
+        if (formName.value.length > 0 && formName.value.length < 4) {
+            // errMsgName.style.display = "flex"
+            errMsgName.innerHTML = "Name must have Minimum of 4 character"
+            errMsgName.style.color = `red`
+            formName.style.border = ` 1px solid red`
+
+
+        }
+
+    }
+
+    var result;
+
+    Array.from(formEmail.value).forEach(element => {
+
+        if (element == "@") {
+            result = true;
+            if (result) {
+                r = true;
+
+            }
+
+
+        }
+        else {
+            result = false;
+        }
+
+    });
+
+    if (e.target.id == "formEmail") {
+
+        if (formEmail.value.length > 10) {
+
+            console.log('im in ');
+            if (!r) {
+                errMsgEmail.innerHTML = "Invalid Email"
+                errMsgEmail.style.color = 'red'
+
+                formEmail.style.border = ` 1px solid red`
+            }
+            if (result) {
+                errMsgEmail.innerHTML = "success"
+                errMsgEmail.style.color = "green"
+                formEmail.style.border = ` 1px solid green`
+            }
+        }
+
+
+        if (formEmail.value.length == 0) {
+            errMsgEmail.innerHTML = "Email Id can't be blank"
+            errMsgEmail.style.color = 'red'
+            formEmail.style.border = ` 1px solid red`
+
+            // errMsgEmail.style.display = "flex"
+        }
+
+    }
+
+    if (e.target.id == "formPhone") {
+
+        if (formPhone.value.length >= 10) {
+            errMsgPhone.innerHTML = "Success"
+            errMsgPhone.style.color = `green`;
+            formPhone.style.border = `1px solid green`;
+
+
+        }
+        if (formPhone.value.length > 8 && formPhone.value.length < 10) {
+            errMsgPhone.innerHTML = "Enter valid 10 digit number"
+            errMsgPhone.style.color = `red`;
+            formPhone.style.border = `1px solid green`;
+
+
+        }
+
+    }
+
+})
